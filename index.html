@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Happy Birthday RITU!</title>
+
+  <style>
+    :root {
+      --pink: #ff4f93;
+      --purple: #7b2cff;
+      --yellow: #ffd75e;
+      --white: #ffffff;
+      --dark: #391856;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      color: var(--dark);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, #fff3b8 0 5%, transparent 20%),
+        radial-gradient(circle at 85% 25%, #ffc9e2 0 7%, transparent 22%),
+        linear-gradient(135deg, #ffd8e9, #dfccff 50%, #bcecff);
+    }
+
+    #confetti {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .decoration {
+      position: fixed;
+      z-index: 1;
+      font-size: clamp(2rem, 6vw, 4rem);
+      animation: float 4s ease-in-out infinite;
+      user-select: none;
+    }
+
+    .balloon-one {
+      top: 8%;
+      left: 6%;
+      transform: rotate(-12deg);
+    }
+
+    .balloon-two {
+      top: 12%;
+      right: 7%;
+      animation-delay: 0.8s;
+    }
+
+    .gift {
+      right: 6%;
+      bottom: 8%;
+      animation-delay: 1.2s;
+    }
+
+    .star {
+      left: 7%;
+      bottom: 10%;
+      animation-delay: 1.8s;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 650px);
+      padding: clamp(28px, 6vw, 55px);
+      overflow: hidden;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 25px 60px rgba(82, 27, 125, 0.24);
+      backdrop-filter: blur(12px);
+      animation: cardEntrance 0.9s ease-out;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+    }
+
+    .card::before {
+      width: 160px;
+      height: 160px;
+      top: -70px;
+      right: -50px;
+      background: var(--pink);
+    }
+
+    .card::after {
+      width: 130px;
+      height: 130px;
+      bottom: -65px;
+      left: -40px;
+      background: var(--purple);
+    }
+
+    .cake {
+      display: block;
+      margin-bottom: 12px;
+      font-size: clamp(3.5rem, 12vw, 6rem);
+      filter: drop-shadow(0 8px 8px rgba(123, 44, 255, 0.18));
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--purple);
+      font-size: clamp(0.75rem, 2.5vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 10vw, 5.2rem);
+      line-height: 1;
+      color: var(--pink);
+      text-shadow: 3px 3px 0 var(--yellow);
+    }
+
+    h2 {
+      margin: 12px 0 20px;
+      color: var(--purple);
+      font-size: clamp(1.7rem, 7vw, 3.2rem);
+      letter-spacing: 0.1em;
+    }
+
+    .message {
+      max-width: 500px;
+      margin: 0 auto 25px;
+      font-size: clamp(1rem, 3.6vw, 1.25rem);
+      line-height: 1.7;
+    }
+
+    .celebrate-button {
+      position: relative;
+      z-index: 4;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 27px;
+      color: var(--white);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 10px 25px rgba(123, 44, 255, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .celebrate-button:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 30px rgba(123, 44, 255, 0.38);
+    }
+
+    .celebrate-button:active {
+      transform: scale(0.96);
+    }
+
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(3deg);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 14px;
+      }
+
+      .card {
+        border-radius: 24px;
+      }
+
+      .decoration {
+        opacity: 0.75;
+      }
+
+      .message {
+        line-height: 1.55;
+      }
+
+      .celebrate-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card,
+      .cake,
+      .decoration {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <span class="decoration balloon-one" aria-hidden="true">🎈</span>
+  <span class="decoration balloon-two" aria-hidden="true">🎈</span>
+  <span class="decoration gift" aria-hidden="true">🎁</span>
+  <span class="decoration star" aria-hidden="true">✨</span>
+
+  <main class="card">
+    <span class="cake" aria-hidden="true">🎂</span>
+
+    <p class="eyebrow">A special day for a special person</p>
+
+    <h1>Happy Birthday</h1>
+    <h2>RITU!</h2>
+
+    <p class="message">
+      May your day be filled with happiness, laughter, beautiful surprises,
+      and all the love your heart can hold. Keep shining and smiling! 💖
+    </p>
+
+    <button class="celebrate-button" id="celebrateButton" type="button">
+      Celebrate RITU 🎉
+    </button>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("confetti");
+    const context = canvas.getContext("2d");
+    const button = document.getElementById("celebrateButton");
+
+    const colors = [
+      "#ff4f93",
+      "#7b2cff",
+      "#ffd75e",
+      "#38d6c5",
+      "#ff7a45",
+      "#ffffff"
+    ];
+
+    let pieces = [];
+    let animationFrameId;
+    let pixelRatio = 1;
+
+    function resizeCanvas() {
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = window.innerWidth * pixelRatio;
+      canvas.height = window.innerHeight * pixelRatio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    }
+
+    function createPiece(originX, originY, isBurst = false) {
+      const angle = isBurst
+        ? Math.random() * Math.PI * 2
+        : Math.PI / 2 + (Math.random() - 0.5) * 0.8;
+
+      const speed = isBurst
+        ? 4 + Math.random() * 9
+        : 2 + Math.random() * 5;
+
+      return {
+        x: originX,
+        y: originY,
+        width: 6 + Math.random() * 8,
+        height: 4 + Math.random() * 6,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        velocityX: Math.cos(angle) * speed,
+        velocityY: Math.sin(angle) * speed,
+        gravity: 0.12 + Math.random() * 0.08,
+        rotation: Math.random() * Math.PI,
+        rotationSpeed: (Math.random() - 0.5) * 0.25,
+        opacity: 1,
+        life: 160 + Math.random() * 80
+      };
+    }
+
+    function launchConfetti(amount = 180) {
+      const originX = window.innerWidth / 2;
+      const originY = window.innerHeight * 0.58;
+
+      for (let index = 0; index < amount; index += 1) {
+        pieces.push(createPiece(originX, originY, true));
+      }
+
+      if (!animationFrameId) {
+        animateConfetti();
+      }
+    }
+
+    function addTopConfetti(amount = 100) {
+      for (let index = 0; index < amount; index += 1) {
+        const piece = createPiece(
+          Math.random() * window.innerWidth,
+          -20 - Math.random() * window.innerHeight * 0.4
+        );
+
+        piece.velocityX = (Math.random() - 0.5) * 2.5;
+        piece.velocityY = 1.5 + Math.random() * 3;
+        pieces.push(piece);
+      }
+
+      if (!animationFrameId) {
+        animateConfetti();
+      }
+    }
+
+    function animateConfetti() {
+      context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      pieces = pieces.filter((piece) => {
+        piece.velocityY += piece.gravity;
+        piece.velocityX *= 0.995;
+        piece.x += piece.velocityX;
+        piece.y += piece.velocityY;
+        piece.rotation += piece.rotationSpeed;
+        piece.life -= 1;
+
+        if (piece.life < 45) {
+          piece.opacity = Math.max(0, piece.life / 45);
+        }
+
+        context.save();
+        context.globalAlpha = piece.opacity;
+        context.translate(piece.x, piece.y);
+        context.rotate(piece.rotation);
+        context.fillStyle = piece.color;
+        context.fillRect(
+          -piece.width / 2,
+          -piece.height / 2,
+          piece.width,
+          piece.height
+        );
+        context.restore();
+
+        return (
+          piece.life > 0 &&
+          piece.y < window.innerHeight + 40 &&
+          piece.x > -60 &&
+          piece.x < window.innerWidth + 60
+        );
+      });
+
+      if (pieces.length > 0) {
+        animationFrameId = requestAnimationFrame(animateConfetti);
+      } else {
+        animationFrameId = null;
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      }
+    }
+
+    button.addEventListener("click", () => {
+      launchConfetti(240);
+
+      button.textContent = "Happy Birthday RITU! 🥳";
+      setTimeout(() => {
+        button.textContent = "Celebrate Again 🎉";
+      }, 1700);
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+
+    resizeCanvas();
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addTopConfetti(140);
+      setTimeout(() => launchConfetti(130), 600);
+    }
+  </script>
+</body>
+</html>
